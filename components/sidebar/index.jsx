@@ -1,17 +1,30 @@
 import React from 'react'
 import { AiFillCloseCircle } from "react-icons/ai";
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../../slices/cartSlice';
 
 const SideBar = ({ showSidebar, setShowSidebar }) => {
 
+    const dispatch = useDispatch();
 
+    // Cart Items From Redux Store
+    const cartItems = useSelector((state) => state?.cart);
+    console.log(cartItems);
+
+    const clear = () => {
+        dispatch(clearCart());
+    }
 
     return (
         <>
             {showSidebar && (
                 <motion.button
                     className="sidebarClose"
-                    onClick={() => setShowSidebar(!showSidebar)}
+                    onClick={() => {
+                        setShowSidebar(!showSidebar);
+                        clear();
+                    }}
                     initial={{
                         x: 100,
                         opacity: 0,

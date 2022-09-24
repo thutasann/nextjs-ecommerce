@@ -5,7 +5,9 @@ import Link from 'next/link'
 import Data from '../../mock';
 import Image from 'next/image';
 import { MagnifyingGlass } from 'react-loader-spinner'
-import SideBar from '../sidebar';
+import SideBar from '../sidebar/index';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../slices/cartSlice';
 
 
 const breakPoints = [
@@ -21,6 +23,8 @@ const ItemDisplays = () => {
     const categories = Data.categories;
     const [ products, setProducts ] = useState([]);
     const [ showSidebar, setShowSidebar ] = useState(false);
+    const [ quantity, setQuantity ] = useState(1);
+    const dispatch = useDispatch();
 
     // Fetching Products
     useEffect(() => {
@@ -28,6 +32,16 @@ const ItemDisplays = () => {
         .then((response) => response.json())
         .then((json) => setProducts(json));
     }, []);
+
+    // ADD TO CART
+    const addToCart = (product) => {
+        console.log(product.quantity);
+        dispatch(
+            addProduct({
+                ...product, quantity
+            })
+        )
+    }
 
 
     return (
@@ -105,7 +119,10 @@ const ItemDisplays = () => {
                     products.map((item, index) => {
                         return (
                             <div 
-                                onClick={() => setShowSidebar(!showSidebar)}
+                                onClick={() => {
+                                    setShowSidebar(true);
+                                    addToCart(item)
+                                }}
                                 key={index}
                                 className='itemsWrapper__items__card'
                             >
