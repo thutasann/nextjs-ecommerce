@@ -9,12 +9,25 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
     return (
         <>
             {showSidebar && (
-                <button
+                <motion.button
                     className="sidebarClose"
                     onClick={() => setShowSidebar(!showSidebar)}
+                    initial={{
+                        x: 100,
+                        opacity: 0,
+                        scale: 0.5
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        scale: 1
+                    }}
+                    transition={{
+                        duration: 0.5
+                    }}
                 >
                     <AiFillCloseCircle size={40}/>
-                </button>
+                </motion.button>
             )}
             <div 
                 className={`sideBar ${
