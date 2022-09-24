@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://klink-ecommerce.vercel.app/
+
+# Sitemaps
+Sitemap: https://klink-ecommerce.vercel.app/sitemap.xml

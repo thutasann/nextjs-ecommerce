@@ -1,0 +1,81 @@
+@layer components{
+    .loginWrapper{
+        @apply h-screen grid grid-cols-1 md:grid-cols-2;
+        &__welcomeText{
+            @apply bg-klink-primary hidden md:flex flex-col justify-between py-[32px] md:px-[20px] lg:px-[32px];
+            
+            &__content{
+                @apply flex flex-col items-center justify-center text-center space-y-5;
+                &__ratings{
+                    @apply flex items-center space-x-[0.8px];
+                    & svg{
+                        @apply text-[#FEC84B];
+                    }
+                }
+                &__heading{
+                    @apply max-w-[592px] text-[#fff] text-[30px] font-[500] leading-[38px] text-center;
+                }
+                &__avatar{
+                    @apply text-center;
+                    & img{
+                        @apply mx-auto mb-[16px];
+                    }
+                    & h3{
+                        @apply text-[16px] text-[#fff] font-[500] leading-[24px] mb-[4px];
+                    }
+                    & p{
+                        @apply text-[14px] text-klink-dim leading-[20px];
+                    }
+                }
+            }
+            &__footer{
+                @apply flex flex-row items-center justify-between text-klink-dim hover:text-klink-dim-hover text-[14px] font-[400] leading-[20px];
+                &__mailto{
+                    @apply flex items-center space-x-2;
+                }
+            }
+        }
+    
+        &__form{
+            @apply flex flex-col items-start mx-auto justify-center;
+            &__wrapper{
+                @apply flex flex-col space-y-3;
+                &__header{
+                    @apply mb-[20px];
+                    & img{
+                        @apply block md:hidden w-[120px] mb-[30px];
+                    }
+                    & h1{
+                        @apply text-[#101828] text-[36px] leading-[44px] font-[600] mb-[12px];
+                    }
+                    & p{
+                        @apply text-[#667085] text-[16px] leading-[24px] font-[400];
+                    }
+                }
+        
+                &__formContainer{
+                    &__formGroup{
+                        @apply mb-[20px] flex flex-col relative;
+                        & label{
+                            @apply text-[14px] text-[#344054] font-[500] leading-[20px] mb-[6px];
+                        }
+                        &__input{
+                            @apply border outline-none w-full rounded-[8px] p-[10px] text-gray-500;
+                        }
+                        &__eyeIcon{
+                            & svg{
+                                @apply w-6 h-6 cursor-pointer text-gray-400 hover:text-gray-500 absolute top-9 right-2;
+                            }
+                        }
+                    }
+                    &__button{
+                        @apply mt-[24px];
+                        & button{
+                            @apply bg-klink-primary hover:bg-klink-primary-hover text-center text-[#fff] text-[16px] font-[500] leading-[24px] rounded-[8px] w-full px-[18px] py-[10px];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
