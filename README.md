@@ -34,7 +34,7 @@ Open [https://klink-ecommerce.vercel.app/](https://klink-ecommerce.vercel.app/) 
 
 ## Simple Login Credential
 
-Here is the simple login Credential to test Authentication.
+Here is the sample login Credential to test Authentication.
 
 `{
 	"username": "admin",
