@@ -6,10 +6,41 @@
         }
     }
     .sideBar{
-        @apply top-0 right-0 w-[300px] md:w-[600px] bg-[#fff]  p-10 text-white 
-        fixed h-full z-40 shadow-md;
-        & h2{
-            @apply text-slate-900 text-[24px] leading-[32px] font-[700];
+        @apply top-0 right-0 w-[300px] md:w-[600px] bg-[#fff]  text-white 
+        fixed h-full z-40 shadow-md flex flex-col justify-between;
+        &__wrapper{
+            @apply p-10 ;
+            & h2{
+                @apply text-slate-900 text-[24px] leading-[32px] font-[700];
+            }
+            
+        }
+
+        &__footer{
+            @apply flex flex-col items-center w-full 
+            h-auto bg-[#EEF1FF] px-[32px] py-[20px] bottom-0;
+            &__grid{
+                @apply flex items-start justify-between text-[#475467] w-full
+                text-[16px] font-[400] leading-[12px];
+                &__right{
+                    @apply text-[#2E3EA1]
+                }
+            }
+            &__Subtotal{
+                @apply mb-[30px];
+            }
+            &__Total{
+                @apply mt-[30px] border-t-2 border-dashed border-gray-300 pt-[30px];
+                &__right{
+                    @apply font-[700];
+                }
+            }
+            &__PayNow{
+                & button{
+                    @apply mt-[30px] bg-klink-primary hover:bg-klink-primary-hover w-full py-[12px] text-white text-[16px] leading-[24px]
+                    rounded-[8px];
+                }
+            }
         }
     }
 }

@@ -27,9 +27,8 @@ const SignIn = () => {
 
     // validations
     const validate = Yup.object({
-        email: Yup.string()
-            .email('Email is invalid')
-            .required('Email is required'),
+        username: Yup.string()
+            .required('UserName is required'),
         password: Yup.string()
             .min(6, 'Password must be at least 6 charaters')
             .required('Password is required'),
@@ -37,9 +36,9 @@ const SignIn = () => {
 
     // SIGN IN
     const signIn = async (values) => {
-        const email = values.email;
+        const username = values.username;
         const password = values.password;
-        console.log(email, password);
+        console.log(username, password);
     }
 
     return (
@@ -202,7 +201,7 @@ const SignIn = () => {
                     >
                         <Formik
                             initialValues={{
-                                email: "",
+                                username: "",
                                 password: ""
                             }}
                             validationSchema={validate}
@@ -213,10 +212,10 @@ const SignIn = () => {
                                     <Form>
                                         <div className='loginWrapper__form__wrapper__formContainer__formGroup'>
                                             <InputBox
-                                                label="Email"
-                                                name="email"
-                                                type="email"
-                                                placeholder="Enter your email"
+                                                label="User Name"
+                                                name="username"
+                                                type="text"
+                                                placeholder="Enter your username"
                                                 className="loginWrapper__form__wrapper__formContainer__formGroup__input"
                                             />
                                         </div>
