@@ -171,10 +171,16 @@ const SignIn = () => {
                             scale: 1
                         }}
                         className="loginWrapper__form__wrapper__header">
-                        <img
-                            src="/assets/klink-logo.webp"
-                            alt="KLINK Ecommerce"
-                        />
+                        <Link href={'/'}>
+                            <img
+                                src="/assets/klink-logo.webp"
+                                alt="KLINK Ecommerce"
+                                width={151}
+                                height={35}
+                                className="block md:hidden"
+                            />
+                        </Link>
+
                         <h1>Login</h1>
                         <p>Welcome back! Please enter your details.</p>
                     </motion.div>
