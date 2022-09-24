@@ -1,6 +1,6 @@
 import ItemDisplays from '../components/items-display/index';
 import Meta from '../components/meta'
-import NavBar from '../components/navbar'
+import NavBar from '../components/navbar/index'
 
 export default function Home() {
 
