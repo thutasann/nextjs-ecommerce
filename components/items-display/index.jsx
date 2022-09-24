@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Data from '../../mock';
 import Image from 'next/image';
 import { MagnifyingGlass } from 'react-loader-spinner'
+import SideBar from '../sidebar';
 
 
 const breakPoints = [
@@ -17,15 +18,17 @@ const breakPoints = [
 
 const ItemDisplays = () => {
 
-    const [ products, setProducts ] = useState([]);
-
     const categories = Data.categories;
+    const [ products, setProducts ] = useState([]);
+    const [ showSidebar, setShowSidebar ] = useState(false);
 
+    // Fetching Products
     useEffect(() => {
         const res = fetch("https://nodejs-ecom-api.herokuapp.com/klink-ecom/api/v1/products/list")
         .then((response) => response.json())
         .then((json) => setProducts(json));
     }, []);
+
 
     return (
         <div className='itemsWrapper'>
@@ -102,6 +105,7 @@ const ItemDisplays = () => {
                     products.map((item, index) => {
                         return (
                             <div 
+                                onClick={() => setShowSidebar(!showSidebar)}
                                 key={index}
                                 className='itemsWrapper__items__card'
                             >
@@ -125,6 +129,12 @@ const ItemDisplays = () => {
                 }
 
             </motion.div>
+
+            {/* Sidebar */}
+            <SideBar
+                showSidebar={showSidebar}
+                setShowSidebar={setShowSidebar}
+            />
 
         </div>
     )

@@ -5,6 +5,7 @@
 @import "../components/navbar/index.css";
 @import "../components/mobile-nav/index.css";
 @import "../components/items-display/index.css";
+@import "../components/sidebar/index.css";
 
 @tailwind base;
 @tailwind components;

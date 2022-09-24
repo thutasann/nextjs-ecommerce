@@ -1,0 +1,15 @@
+@layer components{
+    .sidebarClose{
+        @apply flex text-4xl text-white items-center cursor-pointer fixed right-10 top-6 z-50 ;
+        & svg{
+            @apply text-klink-primary;
+        }
+    }
+    .sideBar{
+        @apply top-0 right-0 w-[300px] md:w-[600px] bg-[#fff]  p-10 pl-20 text-white 
+        fixed h-full z-40 shadow-md;
+        & h2{
+            @apply text-slate-900 text-[24px] leading-[32px] font-[700];
+        }
+    }
+}

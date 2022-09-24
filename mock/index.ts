@@ -6,11 +6,11 @@ const Data = {
         },
         {
             id: 2,
-            category: 'Health Care'
+            category: 'Health'
         },
         {
             id: 3,
-            category: 'Sports & Toys'
+            category: 'Sports'
         },
         {
             id: 4,

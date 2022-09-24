@@ -10,9 +10,9 @@
             }
         }
         &__items{
-            @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mt-[40px] gap-y-7 place-items-center;
+            @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mt-[40px] gap-y-7 place-items-center mb-[60px];
             &__card{
-                @apply relative w-auto h-auto p-3 bg-white rounded-md shadow-sm;
+                @apply relative w-auto h-auto p-3 bg-white rounded-md shadow-sm cursor-pointer;
                 & h3{
                     @apply text-[16px] text-[#000000] leading-[24px] font-[500];
                 }

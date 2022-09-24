@@ -4,7 +4,7 @@
         z-[500] bg-klink-primary h-full w-full;
         
         &__close {
-            @apply absolute top-[7%] right-6 w-14 aspect-square rounded-full  grid  place-items-center cursor-pointer;
+            @apply absolute top-[3%] lg:top-[7%] right-6 w-14 aspect-square rounded-full  grid  place-items-center cursor-pointer;
             svg{
                 @apply fill-white w-[35px] h-[35px] hover:fill-klink-dim-hover; 
             }
