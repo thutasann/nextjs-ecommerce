@@ -1,11 +1,26 @@
 @layer components{
     .itemsWrapper{
         &__categories{
-            @apply flex items-center text-[#fff] font-[700] mt-[34px];  
+            @apply flex items-center text-[#fff] font-[700] mt-[34px] px-[18px] md:px-0;  
             &__category{
                 @apply bg-klink-light-gray hover:bg-klink-light-gray-hover rounded-[100px] w-[300px] mx-2 px-5 py-2 text-center cursor-pointer;
                 span{
                     @apply text-[16px] text-[#344054] whitespace-nowrap ;
+                }
+            }
+        }
+        &__items{
+            @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mt-[40px] gap-y-3 place-items-center;
+            &__card{
+                @apply relative max-w-[224px] h-auto p-3 bg-white rounded-md shadow-sm;
+                & h3{
+                    @apply text-[16px] text-[#000000] leading-[24px] font-[500];
+                }
+                & p{
+                    @apply text-klink-primary text-[18px] font-[700] mt-[14px] leading-[30px];
+                    & span{
+                        @apply mr-2;
+                    }
                 }
             }
         }

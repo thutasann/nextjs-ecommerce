@@ -14,10 +14,12 @@ export default function Home() {
 };
 
   return (
-    <div className='homeWrapper'>
-      <Meta meta={meta}/>
-      <NavBar/>
-      <ItemDisplays/>
-    </div>
+    <>
+      <div className='homeWrapper'>
+        <Meta meta={meta}/>
+        <NavBar/>
+        <ItemDisplays/>
+      </div>
+    </>
   )
 }

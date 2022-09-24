@@ -20,10 +20,11 @@
 
 html{
     overflow-x: hidden;
+    background-color: #fcfdfc;
 }
 
 .homeWrapper{
-    @apply max-w-[1380px] mx-auto;
+    @apply max-w-[1380px] mx-auto px-[18px] lg:px-0;
 }
 
 .eWjCzc:hover:enabled, 
