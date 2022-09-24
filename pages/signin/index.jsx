@@ -32,6 +32,7 @@ const SignIn = () => {
     const router = useRouter();
     const stars = [1,2,3,4,5];
     const [ show, setShow ] = useState(false);
+    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -54,10 +55,12 @@ const SignIn = () => {
     const signIn = async (values) => {
         const username = values.username;
         const password = values.password;
+        setLoading(true);
         login(
             dispatch, 
             {username, password}
         );
+        setLoading(false);
     }
 
     return (
@@ -269,8 +272,11 @@ const SignIn = () => {
                                         <div className="loginWrapper__form__wrapper__formContainer__button">
                                             <button
                                                 type='submit'
+                                                disabled={loading}
                                             >
-                                                Sign In
+                                                {
+                                                    loading ? "Signning In..." : "Sign In"
+                                                }
                                             </button>
                                         </div>
                                     </Form>
