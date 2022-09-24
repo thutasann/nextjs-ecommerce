@@ -33,3 +33,20 @@ html{
     background-color: #1726BD !important;
     box-shadow: 0 0 2px 0 #333;
 }
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #2f2f31; /* Light grey */
+    border-top: 10px solid #1726BD; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+}

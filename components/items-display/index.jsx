@@ -15,9 +15,7 @@ const breakPoints = [
 ];
 
 
-const ItemDisplays = ({ res }) => {
-
-    console.log(res?.length);
+const ItemDisplays = () => {
 
     const [ products, setProducts ] = useState([]);
 
@@ -89,7 +87,13 @@ const ItemDisplays = ({ res }) => {
             >   
 
                 {
-                    products?.map((item, index) => {
+                    products.length === 0 ? (
+                        <div className="spinner-container">
+                            <div className="loading-spinner">
+                            </div>
+                        </div>
+                    ) :
+                    products.map((item, index) => {
                         return (
                             <div 
                                 key={index}
