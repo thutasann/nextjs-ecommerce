@@ -5,7 +5,7 @@ import { BsFillEnvelopeFill } from "react-icons/bs";
 import { Formik, Form } from 'formik'; // Form validation
 import * as Yup from 'yup'; // Form validation
 import Link from 'next/link';
-import { InputBox } from '../../components/inputbox/';
+import { InputBox } from '../../components/inputbox';
 import Meta from '../../components/meta';
 import Image from 'next/image';
 import { login } from '../../slices/apiCalls';

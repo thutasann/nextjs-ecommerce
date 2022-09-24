@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/inputbox/index.jsx", "components/meta/index.jsx", "components/items-display/index.jsx", "components/navbar/index.jsx"  ],
+, "components/inputbox/index.jsx", "components/meta/index.jsx", "components/items-display/index.jsx", "components/navbar/index.jsx", "pages/signin/index.jsx"  ],
   "exclude": [
     "node_modules"
   ]
