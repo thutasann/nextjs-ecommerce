@@ -1,0 +1,34 @@
+@layer components{
+    .navbarWrapper{
+        @apply flex items-center justify-between py-[32px] px-[18px] md:px-[32px] space-x-4;
+        &__search{
+            @apply hidden lg:flex items-center space-x-3;
+            &__container{
+                @apply border p-1 md:p-2 border-gray-400 rounded-md flex items-center justify-between min-w-[108px] md:min-w-[488px];
+                &__input{
+                    @apply border-none outline-none pl-2 text-gray-500;
+                }
+                &__btn{
+                    @apply bg-klink-primary hover:bg-klink-primary-hover px-[20px] py-[8px] rounded-[100px] flex items-center justify-center;
+                    & svg{
+                        @apply text-[#fff];
+                    }
+                }
+            }
+            
+        }
+        &__ctas{
+            @apply hidden lg:flex items-center space-x-3;
+            & a{
+                @apply bg-transparent border border-klink-primary text-klink-primary px-5 py-2 text-center rounded-[100px] hover:bg-klink-primary hover:text-white shadow-sm hover:shadow-none;
+            }
+        }
+    }
+
+    .hamburger {
+        @apply grid -ml-1 cursor-pointer pointer-events-auto w-14 aspect-square place-items-center lg:hidden lg:pointer-events-none;
+        & svg{
+            @apply fill-klink-primary w-[35px] h-[35px] hover:fill-klink-primary;
+        }
+    }
+}

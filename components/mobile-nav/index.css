@@ -1,0 +1,36 @@
+@layer components{
+    .mobileNav{
+        @apply absolute flex lg:hidden flex-col space-y-7 p-8 top-0 left-0 right-2
+        z-[500] bg-klink-primary h-full w-full;
+        
+        &__close {
+            @apply absolute top-[7%] right-6 w-14 aspect-square rounded-full  grid  place-items-center cursor-pointer;
+            svg{
+                @apply fill-white w-[35px] h-[35px] hover:fill-klink-dim-hover; 
+            }
+        }
+        
+        &__search{
+            @apply flex items-center space-x-3;
+            &__container{
+                @apply border p-1 md:p-2 border-gray-400 rounded-md flex items-center justify-between w-full;
+                &__input{
+                    @apply border-none outline-none pl-2 text-white bg-transparent;
+                }
+                &__btn{
+                    @apply bg-white px-[20px] py-[6px] rounded-[100px] flex items-center justify-center;
+                    & svg{
+                        @apply text-klink-primary;
+                    }
+                }
+            }
+            
+        }
+        &__ctas{
+            @apply flex items-center space-x-3;
+            & a{
+                @apply bg-white border border-klink-primary text-klink-primary px-5 py-2 text-center rounded-[100px] shadow-sm hover:shadow-none;
+            }
+        }
+    }
+}

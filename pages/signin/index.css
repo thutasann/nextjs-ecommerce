@@ -13,7 +13,7 @@
                     }
                 }
                 &__heading{
-                    @apply max-w-[592px] text-[#fff] text-[30px] font-[500] leading-[38px] text-center;
+                    @apply max-w-[592px] text-[#fff] text-[30px] font-[500] leading-[38px] text-center cursor-pointer;
                 }
                 &__avatar{
                     @apply text-center;

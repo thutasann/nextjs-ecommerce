@@ -12,6 +12,15 @@ import Image from 'next/image';
 
 const SignIn = () => {
 
+    let meta = {
+        title: "Sign In | KLINK Ecommerce",
+        description:"GWe are a leading System Integration Provider in Myanmar.We are setting the industry standard by providing clients with exceptional levels of service, support and high-quality IT System, security & data solutions throughout Myanmar.",
+        keywords: "KLINK, KINK ECOMMERCE, klinkecommerce, klink enterprise, klink, klinkenterprise, KLINK products, KLINK ENTERPRISE, klink enterprise",
+        url: "https://klink-ecommerce.vercel.app/signin/",
+        image: "/assets/klink-fav.webp",
+        ogimage: "/assets/klink-meta-img.webp"
+    };
+
     const stars = [1,2,3,4,5];
     const [ show, setShow ] = useState(false);
 
@@ -33,13 +42,14 @@ const SignIn = () => {
         console.log(email, password);
     }
 
-
     return (
         <div className='loginWrapper'>
-            <Meta/>
+            <Meta meta={meta} />
 
             {/* Welcome Text */}
-            <div className='loginWrapper__welcomeText'>
+            <div 
+                className='loginWrapper__welcomeText'
+            >
 
                 {/* Header */}
                 <motion.div
@@ -58,13 +68,14 @@ const SignIn = () => {
                         duration: 1
                     }}
                 >
-                    <Link href={'/'}>
+                    <Link href={'/'} >
                         <Image
                             src="/assets/klink-logo-white.png"
                             alt="KLINK Ecommerce"
-                            width={140}
+                            width={151}
                             height={35}
                             priority
+                            className="cursor-pointer"
                         />
                     </Link>
                 </motion.div>
@@ -100,8 +111,8 @@ const SignIn = () => {
                         <Image
                             src="/assets/klink-login-avatar.png"
                             alt='KLINK Ecommerce Login Avatar'
-                            width={70}
-                            height={70}
+                            width={64}
+                            height={64}
                             priority
                         />
                         <h3>Lori Bryson</h3>
@@ -245,6 +256,7 @@ const SignIn = () => {
                     </motion.div>
                 </div>
             </div>
+            
         </div>
     )
 }

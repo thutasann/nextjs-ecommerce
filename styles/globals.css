@@ -1,4 +1,9 @@
+/* Pages styles */
 @import "../pages/signin/index.css";
+
+/* Components styles */
+@import "../components/navbar/index.css";
+@import "../components/mobile-nav/index.css";
 
 @tailwind base;
 @tailwind components;
@@ -14,4 +19,8 @@
 
 html{
     overflow-x: hidden;
+}
+
+.homeWrapper{
+    @apply max-w-[1380px] mx-auto;
 }
