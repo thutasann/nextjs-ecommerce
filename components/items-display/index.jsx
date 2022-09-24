@@ -4,7 +4,7 @@ import Carousel from 'react-elastic-carousel'
 import Link from 'next/link'
 import Data from '../../mock';
 import Image from 'next/image';
-import { list } from 'postcss';
+import { MagnifyingGlass } from 'react-loader-spinner'
 
 
 const breakPoints = [
@@ -69,7 +69,7 @@ const ItemDisplays = () => {
             {/* Items Grid */}
             <motion.div
                 initial={{ 
-                    y: 100,
+                    y: -100,
                     x: 10,
                     opacity: 0,
                     scale: 0.5
@@ -88,10 +88,16 @@ const ItemDisplays = () => {
 
                 {
                     products.length === 0 ? (
-                        <div className="spinner-container">
-                            <div className="loading-spinner">
-                            </div>
-                        </div>
+                        <MagnifyingGlass
+                            visible={true}
+                            height="80"
+                            width="80"
+                            ariaLabel="MagnifyingGlass-loading"
+                            wrapperStyle={{}}
+                            wrapperClass="MagnifyingGlass-wrapper"
+                            glassColor = '#efefef'
+                            color = '#1726BD'
+                        />
                     ) :
                     products.map((item, index) => {
                         return (
