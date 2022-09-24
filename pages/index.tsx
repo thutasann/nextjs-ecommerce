@@ -1,3 +1,4 @@
+import ItemDisplays from '../components/items-display';
 import Meta from '../components/meta'
 import NavBar from '../components/navbar'
 
@@ -16,6 +17,7 @@ export default function Home() {
     <div className='homeWrapper'>
       <Meta meta={meta}/>
       <NavBar/>
+      <ItemDisplays/>
     </div>
   )
 }

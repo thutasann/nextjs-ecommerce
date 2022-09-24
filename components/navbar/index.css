@@ -1,6 +1,6 @@
 @layer components{
     .navbarWrapper{
-        @apply flex items-center justify-between py-[32px] px-[18px] md:px-[32px] space-x-4;
+        @apply flex items-center justify-between py-[32px] px-[18px] md:px-0 space-x-4 ;
         &__search{
             @apply hidden lg:flex items-center space-x-3;
             &__container{

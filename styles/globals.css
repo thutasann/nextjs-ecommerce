@@ -4,6 +4,7 @@
 /* Components styles */
 @import "../components/navbar/index.css";
 @import "../components/mobile-nav/index.css";
+@import "../components/items-display/index.css";
 
 @tailwind base;
 @tailwind components;
@@ -23,4 +24,11 @@ html{
 
 .homeWrapper{
     @apply max-w-[1380px] mx-auto;
+}
+
+.eWjCzc:hover:enabled, 
+.eWjCzc:focus:enabled {
+    color: #fff;
+    background-color: #1726BD !important;
+    box-shadow: 0 0 2px 0 #333;
 }

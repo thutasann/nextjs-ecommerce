@@ -1,0 +1,13 @@
+@layer components{
+    .itemsWrapper{
+        &__categories{
+            @apply flex items-center text-[#fff] font-[700] mt-[34px];  
+            &__category{
+                @apply bg-klink-light-gray hover:bg-klink-light-gray-hover rounded-[100px] w-[300px] mx-2 px-5 py-2 text-center cursor-pointer;
+                span{
+                    @apply text-[16px] text-[#344054] whitespace-nowrap ;
+                }
+            }
+        }
+    }
+}
