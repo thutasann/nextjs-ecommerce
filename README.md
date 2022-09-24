@@ -6,7 +6,7 @@
 
 Here is the Backend API Repo Link.
 
-[https://github.com/thutasann/node-js-ecommerce-api] (https://github.com/thutasann/node-js-ecommerce-api)
+[https://github.com/thutasann/node-js-ecommerce-api](https://github.com/thutasann/node-js-ecommerce-api)
 
 ### Installation Steps
 
