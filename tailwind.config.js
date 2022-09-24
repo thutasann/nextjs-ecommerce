@@ -11,7 +11,7 @@ module.exports = {
         'klink-dim' : "#939DD4",
         'klink-dim-hover' : "#8EA0FF",
         'klink-light-gray': "#F2F4F7",
-        'klink-light-gray-hover': "#E9E9E9"
+        'klink-light-gray-hover': "#E9E9E9",
       },
     },
   },

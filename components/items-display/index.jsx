@@ -19,7 +19,7 @@ const ItemDisplays = () => {
 
     return (
         <motion.div 
-            initial={{
+            initial={{ 
                 y: 100,
                 x: 10,
                 opacity: 0,
@@ -39,7 +39,8 @@ const ItemDisplays = () => {
 
             <div className="itemsWrapper__categories">
                 <Carousel
-                    breakPoints={breakPoints} pagination={false}
+                    breakPoints={breakPoints} 
+                    pagination={false}
                 >
                     {
                         categories.map((cate, index) => (

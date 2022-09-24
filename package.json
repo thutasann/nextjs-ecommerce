@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "eslint": "^8.24.0",
     "formik": "^2.2.9",
     "framer-motion": "^7.3.4",
     "next": "latest",
