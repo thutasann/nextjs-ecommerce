@@ -6,7 +6,7 @@
             &__container{
                 @apply border p-1 md:p-2 border-gray-400 rounded-md flex items-center justify-between min-w-[108px] md:min-w-[488px];
                 &__input{
-                    @apply border-none outline-none pl-2 text-gray-500;
+                    @apply border-none outline-none pl-2 text-gray-500 bg-transparent w-full;
                 }
                 &__btn{
                     @apply bg-klink-primary hover:bg-klink-primary-hover px-[20px] py-[8px] rounded-[100px] flex items-center justify-center;

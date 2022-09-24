@@ -1,4 +1,4 @@
-import ItemDisplays from '../components/items-display';
+import ItemDisplays from '../components/items-display/index';
 import Meta from '../components/meta'
 import NavBar from '../components/navbar'
 
@@ -23,3 +23,5 @@ export default function Home() {
     </>
   )
 }
+
+

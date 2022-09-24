@@ -30,7 +30,7 @@ const Data = {
         },
         {
             id: 8,
-            category: 'Kids'
+            category: 'Babes'
         },
         {
             id: 9,

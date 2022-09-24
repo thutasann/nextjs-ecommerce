@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Carousel from 'react-elastic-carousel'
 import Link from 'next/link'
 import Data from '../../mock';
 import Image from 'next/image';
+import { list } from 'postcss';
 
 
 const breakPoints = [
@@ -13,10 +14,20 @@ const breakPoints = [
     { width: 1200, itemsToShow: 8 }
 ];
 
-const ItemDisplays = () => {
+
+const ItemDisplays = ({ res }) => {
+
+    console.log(res?.length);
+
+    const [ products, setProducts ] = useState([]);
 
     const categories = Data.categories;
-    
+
+    useEffect(() => {
+        const res = fetch("https://nodejs-ecom-api.herokuapp.com/klink-ecom/api/v1/products/list")
+        .then((response) => response.json())
+        .then((json) => setProducts(json));
+    }, []);
 
     return (
         <div className='itemsWrapper'>
@@ -78,9 +89,12 @@ const ItemDisplays = () => {
             >   
 
                 {
-                    categories.map((item, index) => {
+                    products?.map((item, index) => {
                         return (
-                            <div className='itemsWrapper__items__card'>
+                            <div 
+                                key={index}
+                                className='itemsWrapper__items__card'
+                            >
                                 <Image
                                     src="/assets/klink-thumbnail.png"
                                     width="224px"
@@ -89,11 +103,11 @@ const ItemDisplays = () => {
                                     alt="Title"
                                 />
                                 <h3>
-                                    Couple Shoes 2021 New One Man and One Woman Spring Korean
+                                    {item?.title}
                                 </h3>
                                 <p>
                                     <span>Ks</span>
-                                    <b>$3,000</b>
+                                    <b>$ {item?.price}</b>
                                 </p>
                             </div>
                         )
@@ -106,4 +120,4 @@ const ItemDisplays = () => {
     )
 }
 
-export default ItemDisplays
+export default ItemDisplays;
