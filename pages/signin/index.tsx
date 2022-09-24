@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { motion } from 'framer-motion'
 import { AiFillStar } from "react-icons/ai";
 import { BsFillEnvelopeFill } from "react-icons/bs";
@@ -8,6 +8,9 @@ import Link from 'next/link';
 import { InputBox } from '../../components/inputbox/';
 import Meta from '../../components/meta';
 import Image from 'next/image';
+import { login } from '../../slices/apiCalls';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 
 const SignIn = () => {
@@ -21,8 +24,21 @@ const SignIn = () => {
         ogimage: "/assets/klink-meta-img.webp"
     };
 
+
+    // User From Redux Store
+    const user = useSelector((state) => state?.user?.currentUser);
+    
+    
+    const router = useRouter();
     const stars = [1,2,3,4,5];
     const [ show, setShow ] = useState(false);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if(user){
+            router.push("/")
+        } 
+    }, [user]);
 
 
     // validations
@@ -38,7 +54,10 @@ const SignIn = () => {
     const signIn = async (values) => {
         const username = values.username;
         const password = values.password;
-        console.log(username, password);
+        login(
+            dispatch, 
+            {username, password}
+        );
     }
 
     return (

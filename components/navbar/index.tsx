@@ -1,14 +1,32 @@
 import Image from 'next/image'
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import useToggle from '../../hook';
 import MobileNav from '../mobile-nav';
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { logout } from '../../slices/userSlice';
 
 const NavBar = () => {
 
     const { state, dispatch } = useToggle();
+    const router = useRouter();
+    const dispatchRedux = useDispatch();
+
+    // User From Redux Store
+    const user = useSelector((state) => state?.user?.currentUser);
+
+    useEffect(() => {
+        if(user){
+            router.push("/")
+        } 
+    }, [user]);
+
+    const logoutSubmit = () => {
+        dispatchRedux(logout());
+    }
 
     return (
         <div className='navbarWrapper'>
@@ -120,11 +138,24 @@ const NavBar = () => {
                 }}
                 className='navbarWrapper__ctas'
             >
-                <Link 
-                    href={'/signin/'}
-                >
-                    Sign In
-                </Link>
+                {
+                    user ? (
+                        <>
+                            <span>{user?.email}</span>
+                            <button
+                                onClick={logoutSubmit}
+                            >
+                                Sign Out
+                            </button>
+                        </>
+                    ) : (
+                        <Link 
+                            href={'/signin/'}
+                        >
+                            Sign In
+                        </Link>
+                    )
+                }
             </motion.div>
         </div>
     )
