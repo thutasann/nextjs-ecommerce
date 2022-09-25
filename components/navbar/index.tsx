@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { logout } from '../../slices/userSlice';
+import { BsFillCartFill } from "react-icons/bs";
 
 interface state{
     user: any

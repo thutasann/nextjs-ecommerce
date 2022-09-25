@@ -1,26 +1,54 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stat } from "fs";
 
 const cartSlice = createSlice({
     name: "cart",
-    initialState: {
-        products: [],
-        quantity: 0,
-        total: 0
-    },
+    initialState: [],
     reducers: {
         addProduct: (state, action) => {
-            state.quantity += 1;
-            state.products.push(action.payload);
-            state.total += action.payload * action.payload.quantity;
+            const itemExits = state.find((item) => item._id === action.payload._id);
+            if(itemExits){
+                itemExits.quantity++;
+            }
+            else{
+                state.push({
+                    ...action.payload,
+                    quantity: 1
+                });
+            }
         },
+
+        incrementQuantity: (state, action) => {
+            const item = state.find((item) => item._id === action.payload);
+            item.quantity++;
+        },
+
+        decrementQuantity: (state, action) => {
+            const item = state.find((item) => item._id === action.payload);
+            if(item.quantity === 1){
+                const index = state.findIndex((item) => item.id === action.payload);
+                state.splice(index, 1);
+            }
+            else {
+                item.quantity--;
+            }
+        },
+
+        removeFromCart: (state, action) => {
+            const index = state.findIndex((item) => item._id === action.payload);
+            state.splice(index, 1);
+        },
+
         clearCart: (state) => {
-            state.products = [];
-            state.quantity = 0,
-            state.total = 0
+            return state = [];
         },
     },
 });
 
-export const { addProduct, clearCart } = cartSlice.actions;
+export const {
+    addProduct,
+    incrementQuantity,
+    decrementQuantity,
+    removeFromCart,
+    clearCart
+} = cartSlice.actions;
 export default cartSlice.reducer;

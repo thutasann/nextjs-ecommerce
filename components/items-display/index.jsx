@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Data from '../../mock';
 import Image from 'next/image';
 import { MagnifyingGlass } from 'react-loader-spinner'
-import SideBar from '../sidebar/index';
+import SideBar from '../sidebar';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../slices/cartSlice';
 
@@ -23,7 +23,6 @@ const ItemDisplays = () => {
     const categories = Data.categories;
     const [ products, setProducts ] = useState([]);
     const [ showSidebar, setShowSidebar ] = useState(false);
-    const [ quantity, setQuantity ] = useState(1);
     const dispatch = useDispatch();
 
     // Fetching Products
@@ -35,12 +34,8 @@ const ItemDisplays = () => {
 
     // ADD TO CART
     const addToCart = (product) => {
-        console.log(product.quantity);
-        dispatch(
-            addProduct({
-                ...product, quantity
-            })
-        )
+        console.log("Add to cart product", product);
+        dispatch(addProduct(product))
     }
 
 
@@ -130,7 +125,9 @@ const ItemDisplays = () => {
                                     src="/assets/klink-thumbnail.png"
                                     width="224px"
                                     height="195px"
-                                    priority
+                                    placeholder='blur'
+                                    blurDataURL='/assets/klink-thumbnail.png'
+                                    loading='lazy'
                                     alt="Title"
                                 />
                                 <h3>

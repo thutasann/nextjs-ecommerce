@@ -13,12 +13,27 @@
             & h2{
                 @apply text-slate-900 text-[24px] leading-[32px] font-[700];
             }
+            &__clearCart{
+                & button {
+                    @apply flex items-center space-x-3 bg-red-500 hover:bg-red-600 
+                    mt-7 px-2 py-1 rounded-md;
+                    & span{
+                        @apply text-[16px] text-base;
+                    }
+                }
+            }
             &__products{
                 @apply flex flex-col items-start justify-between mt-[48px];
+                &__empty{
+                    @apply flex flex-col items-center;
+                    & h3{
+                        @apply text-red-500 font-[700] leading-[24px] text-2xl mt-5;
+                    }
+                }
                 &__product{
                     @apply flex flex-row w-full mt-4;
                     &__img{
-                        @apply relative;
+                        @apply hidden md:block;
                     }
                     &__info{
                         @apply ml-3 flex-1;
