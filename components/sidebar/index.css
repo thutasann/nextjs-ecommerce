@@ -95,7 +95,7 @@
             &__PayNow{
                 & button{
                     @apply mt-[30px] bg-klink-primary hover:bg-klink-primary-hover w-full py-[12px] text-white text-[16px] leading-[24px]
-                    rounded-[8px];
+                    rounded-[8px] disabled:bg-gray-400 disabled:cursor-not-allowed;
                 }
             }
         }

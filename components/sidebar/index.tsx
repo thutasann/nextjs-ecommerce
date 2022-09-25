@@ -24,12 +24,16 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
     }
 
     const [ inputQty, setInputQty ] = useState<number>(cart?.quantity);
-
+    const [ thankYou, setThankYou ] = useState<boolean>(false);
+    
     const getSubTotalPrice = () => {
         return cart.reduce(
             (accumulator, item) => accumulator + item?.quantity * item?.price, 0
         )
     }
+
+    const tax = getSubTotalPrice()/100 * 5;
+    const GrandTotal = getSubTotalPrice() + tax;
 
 
     return (
@@ -102,6 +106,7 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
                                     }}
                                     onClick={() => {
                                         clear();
+                                        setThankYou(false);
                                     }}  
                                 >
                                     <span>Clear</span> 
@@ -114,7 +119,39 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
 
                     <div className="sideBar__wrapper__products">
                         {
-                            cart?.length === 0 ? (
+                            thankYou && cart?.length === 0 && (
+                                // Thank You
+                                <motion.div 
+                                    initial={{
+                                        y: -100,
+                                        opacity: 0,
+                                        scale: 0.5
+                                    }}
+                                    animate={{
+                                        x: 0,
+                                        y:0,
+                                        opacity: 1,
+                                        scale: 1
+                                    }}
+                                    transition={{
+                                        duration: 0.5
+                                    }}
+                                    className='sideBar__wrapper__products__empty'
+                                >
+                                    <Image
+                                        src="/assets/klink-thankyou.png"
+                                        width={500}
+                                        height={500}
+                                        placeholder="blur"
+                                        blurDataURL='/assets/klink-thankyou.png'
+                                        alt="KLINK ECommerce Thank You"
+                                    />
+                                </motion.div>
+                            )
+                        }
+                        {
+                            cart?.length === 0 && !thankYou ? (
+                                // Empty
                                 <motion.div 
                                     initial={{
                                         y: -100,
@@ -199,7 +236,7 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
                                                     </button>
 
                                                     <p>
-                                                        Ks {item?.price}
+                                                        Ks {item?.price * item?.quantity}
                                                     </p>
                                                 </div>
                                             </div>
@@ -218,11 +255,10 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
                         }
                     </div>
 
-                    
-
 
                 </div>
-
+                
+                {/* Footer */}
                 <motion.div 
                     initial={{
                         x: 100,
@@ -247,19 +283,24 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
 
                     <div className='sideBar__footer__Tax sideBar__footer__grid'>
                         <div>Tax (5%)</div>
-                        <div className='sideBar__footer__grid__right'>Ks 450</div>
+                        <div className='sideBar__footer__grid__right'>Ks {tax}</div>
                     </div>
 
                     <hr className='sideBar__footer__Divider'  />
 
                     <div className='sideBar__footer__Total sideBar__footer__grid'>
                         <div>Total</div>
-                        <div className='sideBar__footer__grid__right'>Ks 9450</div>
+                        <div className='sideBar__footer__grid__right'>Ks {GrandTotal}</div>
                     </div>
 
                     <div className='sideBar__footer__PayNow sideBar__footer__grid'>
                         <button
                             type='submit'
+                            onClick={() => {
+                                clear();
+                                setThankYou(true);
+                            }}
+                            disabled={cart?.length === 0}
                         >
                             Pay Now
                         </button>
