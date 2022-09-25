@@ -32,7 +32,7 @@ This project is also Deployed on the <b>Vercel</b>.
 
 Open [https://klink-ecommerce.vercel.app/](https://klink-ecommerce.vercel.app/) in your browser to view the Frontend UI.
 
-## Simple Login Credential
+## Sample Login Credential
 
 Here is the sample login Credential to test Authentication.
 
