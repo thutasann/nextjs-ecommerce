@@ -28,7 +28,7 @@ Open [http://localhost:4000/klink-ecom/api/v1](http://localhost:4000/klink-ecom/
 
 ## Production
 
-This prject is also Deployed on the <b>Vercel</b>.
+This project is also Deployed on the <b>Vercel</b>.
 
 Open [https://klink-ecommerce.vercel.app/](https://klink-ecommerce.vercel.app/) in your browser to view the Frontend UI.
 
