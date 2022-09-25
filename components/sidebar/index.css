@@ -13,7 +13,49 @@
             & h2{
                 @apply text-slate-900 text-[24px] leading-[32px] font-[700];
             }
-            
+            &__products{
+                @apply flex flex-col items-start justify-between mt-[48px];
+                &__product{
+                    @apply flex flex-row w-full mt-4;
+                    &__img{
+                        @apply relative;
+                    }
+                    &__info{
+                        @apply ml-3 flex-1;
+                        & h2{
+                            @apply text-[16px] font-[500] leading-[24px] max-w-[256px];
+                        }
+                        &__btns{
+                            @apply flex flex-row items-center mt-[12px];
+                            & button,
+                            & input{
+                                @apply px-2 py-1 text-center text-[18px] border border-[#D0D5DD] text-[#667085]
+                            }
+                            & button{
+                                @apply w-[44px] hover:bg-[#efefef];
+                            }
+                            & input{
+                                @apply w-[50px] outline-none;
+                            }
+                            &__minus{
+                                @apply rounded-tl-lg rounded-bl-lg;
+                            }
+                            &__plus{
+                                @apply rounded-tr-lg rounded-br-lg;
+                            }
+                            & p{
+                                @apply text-klink-primary ml-4;
+                            }
+                        }
+                    }
+                    &__closeBtn{
+                        @apply flex items-start mr-1;
+                        & svg{
+                            @apply text-gray-500;
+                        }
+                    }
+                }
+            }
         }
 
         &__footer{

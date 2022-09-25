@@ -1,8 +1,10 @@
 import React from 'react'
-import { AiFillCloseCircle } from "react-icons/ai";
+import { AiFillCloseCircle, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../slices/cartSlice';
+import Image from 'next/image';
+import { AiOutlineClose } from "react-icons/ai";
 
 const SideBar = ({ showSidebar, setShowSidebar }) => {
 
@@ -12,6 +14,7 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
     const cartItems = useSelector((state) => state?.cart);
     console.log(cartItems);
 
+    // ClearCart
     const clear = () => {
         dispatch(clearCart());
     }
@@ -51,6 +54,59 @@ const SideBar = ({ showSidebar, setShowSidebar }) => {
 
                     <div className='sideBar__wrapper__heading'>
                         <h2>Order Details</h2>
+                    </div>
+
+                    <div className="sideBar__wrapper__products">
+                        {
+                            cartItems?.products?.length === 0 ? (
+                                <h1>No Product found</h1>
+                            ): (
+                                cartItems?.products?.map((item, index) => {
+                                    return (
+                                        <div 
+                                            key={index}
+                                            className='sideBar__wrapper__products__product'
+                                        >
+                                            <div className="sideBar__wrapper__products__product__img">
+                                                <Image
+                                                    src="/assets/klink-thumbnail.png"
+                                                    width="117px"
+                                                    height="117px"
+                                                    priority
+                                                    alt="Cart Item"
+                                                />
+                                            </div>
+                                            <div className="sideBar__wrapper__products__product__info">
+                                                <h2>
+                                                    {item?.title}
+                                                </h2>
+                                                <div className='sideBar__wrapper__products__product__info__btns'>
+                                                    <button className='sideBar__wrapper__products__product__info__btns__minus'>
+                                                        -
+                                                    </button>
+                                                    <input 
+                                                        type="number" 
+                                                        min={0}
+                                                    />
+                                                    <button className='sideBar__wrapper__products__product__info__btns__plus'>
+                                                        +
+                                                    </button>
+
+                                                    <p>
+                                                        Ks {item?.price}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="sideBar__wrapper__products__product__closeBtn">
+                                                <AiOutlineClose 
+                                                    size={29}
+                                                />
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            )
+                        }
                     </div>
 
                 </div>
