@@ -3,8 +3,24 @@ import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../slices/userSlice';
+
+interface state{
+    user: any
+}
 
 const MobileNav = ({ dispatch }) => {
+
+    const dispatchRedux = useDispatch();
+
+    // User From Redux Store
+    const user = useSelector((state: state) => state?.user?.currentUser);
+
+    const logoutSubmit = () => {
+        dispatchRedux(logout());
+    }
+
     return (
         <div className='mobileNav'>
 
@@ -108,11 +124,24 @@ const MobileNav = ({ dispatch }) => {
                 }}
                 className='mobileNav__ctas'
             >
-                <Link 
-                    href={'/signin'}
-                >
-                    Sign In
-                </Link>
+                {
+                    user ? (
+                        <>
+                            <span>{user?.email}</span>
+                            <button
+                                onClick={logoutSubmit}
+                            >   
+                                Sign out
+                            </button>
+                        </>
+                    ) : (
+                        <Link 
+                            href={'/signin'}
+                        >
+                            Sign In
+                        </Link>
+                    )
+                }
             </motion.div>
         </div>
     )

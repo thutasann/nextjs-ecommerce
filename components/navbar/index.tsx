@@ -9,6 +9,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { logout } from '../../slices/userSlice';
 
+interface state{
+    user: any
+}
+
 const NavBar = () => {
 
     const { state, dispatch } = useToggle();
@@ -16,7 +20,7 @@ const NavBar = () => {
     const dispatchRedux = useDispatch();
 
     // User From Redux Store
-    const user = useSelector((state) => state?.user?.currentUser);
+    const user = useSelector((state: state) => state?.user?.currentUser);
 
     useEffect(() => {
         if(user){
