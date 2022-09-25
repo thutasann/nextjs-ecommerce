@@ -1,13 +1,13 @@
 @layer components{
     .sidebarClose{
-        @apply flex text-4xl text-white items-center cursor-pointer fixed right-10 top-6 z-50 ;
+        @apply fixed z-50 flex items-center text-4xl text-white cursor-pointer right-10 top-6 ;
         & svg{
             @apply text-klink-primary;
         }
     }
     .sideBar{
         @apply top-0 right-0 w-[300px] md:w-[600px] bg-[#fff]  text-white 
-        fixed h-full z-40 shadow-md flex flex-col justify-between;
+        fixed h-screen overflow-y-scroll z-40 shadow-md flex flex-col justify-between;
         &__wrapper{
             @apply p-10 ;
             & h2{
@@ -15,8 +15,7 @@
             }
             &__clearCart{
                 & button {
-                    @apply flex items-center space-x-3 bg-red-500 hover:bg-red-600 
-                    mt-7 px-2 py-1 rounded-md;
+                    @apply flex items-center px-2 py-1 space-x-3 bg-red-500 rounded-md hover:bg-red-600 mt-7;
                     & span{
                         @apply text-[16px] text-base;
                     }
@@ -36,7 +35,7 @@
                         @apply hidden md:block;
                     }
                     &__info{
-                        @apply ml-3 flex-1;
+                        @apply flex-1 ml-3;
                         & h2{
                             @apply text-[16px] font-[500] leading-[24px] max-w-[256px];
                         }
@@ -59,7 +58,7 @@
                                 @apply rounded-tr-lg rounded-br-lg;
                             }
                             & p{
-                                @apply text-klink-primary ml-4;
+                                @apply ml-4 text-klink-primary;
                             }
                         }
                     }
