@@ -99,7 +99,7 @@ const ItemDisplays = () => {
             >   
 
                 {
-                    products.length === 0 ? (
+                    products?.length === 0 ? (
                         <MagnifyingGlass
                             visible={true}
                             height="80"
@@ -111,7 +111,7 @@ const ItemDisplays = () => {
                             color = '#1726BD'
                         />
                     ) :
-                    products.map((item, index) => {
+                    products?.map((item, index) => {
                         return (
                             <div 
                                 onClick={() => {
